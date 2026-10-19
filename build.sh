@@ -2,8 +2,8 @@
 # Builds the APK without Gradle/Android SDK, using Debian's aapt2, dx, zipalign and apksigner.
 set -euo pipefail
 cd "$(dirname "$0")"
-VERSION_CODE=${VERSION_CODE:-2}
-VERSION_NAME=${VERSION_NAME:-1.1}
+VERSION_CODE=${VERSION_CODE:-3}
+VERSION_NAME=${VERSION_NAME:-1.2}
 JAR=tools/android.jar
 # Signing key (not in git). Override with KEYSTORE / KS_PASS; a new key is generated if missing.
 KEYSTORE=${KEYSTORE:-tools/release.jks}

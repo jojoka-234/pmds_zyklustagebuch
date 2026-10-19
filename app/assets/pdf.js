@@ -51,7 +51,7 @@ function buildDiaryPdf(cyc, days, entries, symptoms) {
     doc.setFont('helvetica', 'bold');
     doc.text('SEITE ' + pageNo + ' / ' + totalPages, X0, 203);
     doc.setFont('helvetica', 'normal');
-    doc.text('Vorlage: PMDS-Zyklustagebuch nach ICD-11  © Dorn, Schwenkhagen, Rohde 2026', RIGHT, 203, { align: 'right' });
+    doc.text('Vorlage: PMDS-Zyklustagebuch nach ICD-11  © Dorn, Schwenkhagen, Rohde 2026  ·  pmds.team', RIGHT, 203, { align: 'right' });
 
     doc.setFillColor(...BAR);
     doc.rect(X0, BAR_Y, RIGHT - X0, BAR_H, 'F');

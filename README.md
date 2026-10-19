@@ -61,9 +61,11 @@ Die Oberfläche läuft auch im normalen Browser (`app/assets/index.html` öffnen
 Inhalt und Layout des Tagebuchs basieren auf dem **PMDS-Zyklustagebuch zum Ratgeber
 (NEU: nach ICD-11 Kriterien)**, © Dorn, Schwenkhagen, Rohde 2026 – veröffentlicht vorab zur
 3. Auflage ihres PMDS-Ratgebers (Erscheinen Herbst 2026).
+Die Original-Vorlage (PDF) gibt es unter **<https://pmds.team/>**.
 Symptomliste, Skala, Ausfüllhinweise und Seitenaufbau stammen aus dieser Vorlage; die App ist eine
 unabhängige, inoffizielle Umsetzung und steht in keiner Verbindung zu den Autorinnen.
-Die Rechte an der Vorlage verbleiben bei den Autorinnen, die Vorlage selbst ist nicht Teil dieses Repositorys.
+Die Rechte an der Vorlage verbleiben bei den Autorinnen, die Vorlage selbst ist nicht Teil dieses Repositorys –
+bitte direkt von <https://pmds.team/> beziehen.
 Der PDF-Export nennt die Vorlage in der Fußzeile.
 
 Die App ersetzt keine ärztliche Beratung. Das ausgefüllte Tagebuch dient als Grundlage für das Gespräch
