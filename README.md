@@ -4,6 +4,11 @@ Eine persönliche Android-App zum täglichen Führen des **PMDS-Zyklustagebuchs 
 Symptome von 0 bis 4 bewerten, Notizen eintragen, den Zyklus als Tabelle ansehen und als PDF im
 Layout der Papiervorlage exportieren – mit täglicher Erinnerung zur selbst gewählten Uhrzeit.
 
+> **Originalquelle:** Die App setzt das *PMDS-Zyklustagebuch zum Ratgeber (nach ICD-11 Kriterien)*
+> von **Dorn, Schwenkhagen und Rohde** (© 2026) digital um. Die Original-Vorlage und der Ratgeber sind
+> unter **<https://pmds.team/>** erhältlich. Inoffizielle Umsetzung, ohne Verbindung zu den Autorinnen –
+> Details unter [Quelle](#quelle).
+
 ![Screenshots: Eintrag und Übersicht](docs/screenshots.png)
 
 ## Funktionen
