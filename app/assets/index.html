@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Zyklustagebuch</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Zyklustagebuch</h1>
+</header>
+
+<main>
+  <!-- Eintrag -->
+  <section id="view-entry" class="view active">
+    <div class="datebar">
+      <button class="nav" id="prevDay" aria-label="Vorheriger Tag">‹</button>
+      <label class="datepick">
+        <span id="dateLabel"></span>
+        <input type="date" id="dateInput">
+      </label>
+      <button class="nav" id="nextDay" aria-label="Nächster Tag">›</button>
+    </div>
+    <div class="dayinfo">
+      <span id="cycleDayChip" class="chip"></span>
+      <span id="progress" class="muted"></span>
+      <button id="todayBtn" class="link hidden">Heute</button>
+    </div>
+
+    <div id="noCycle" class="card notice hidden">
+      <p>Für dieses Datum gibt es noch keinen Zyklus.<br>Der <b>1. Zyklustag</b> ist der erste Tag mit richtiger Blutung.</p>
+      <button class="btn primary" id="startHereBtn">Zyklus an diesem Tag beginnen</button>
+    </div>
+
+    <div id="futureNote" class="card notice hidden">
+      <p>Dieser Tag liegt in der Zukunft. Bitte trage jeden Tag erst am jeweiligen Tag ein.</p>
+    </div>
+
+    <div id="entryForm">
+      <div id="symptoms"></div>
+      <div class="card">
+        <label class="tlabel" for="workText">Auswirkungen auf Studium / Beruf / Familienleben</label>
+        <textarea id="workText" rows="2" placeholder="optional"></textarea>
+        <label class="tlabel" for="eventsText">Besondere Belastungen / Ereignisse</label>
+        <textarea id="eventsText" rows="2" placeholder="optional"></textarea>
+      </div>
+      <div class="cyclebox">
+        <button class="btn" id="newCycleBtn">Periode hat an diesem Tag begonnen – neuer Zyklus</button>
+        <p id="cycleStartNote" class="muted hidden">Dieser Tag ist der 1. Zyklustag. <button class="link" id="removeStartBtn">Zyklusbeginn entfernen</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Übersicht -->
+  <section id="view-overview" class="view">
+    <div class="card"><div class="row">
+      <label for="cycleSelect" class="muted">Zyklus</label>
+      <select id="cycleSelect"></select>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="sharePdfBtn">PDF teilen</button>
+      <button class="btn" id="savePdfBtn">PDF speichern</button>
+    </div></div>
+    <div id="overviewEmpty" class="card notice hidden"><p>Noch kein Zyklus angelegt. Beginne im Tab „Eintrag“.</p></div>
+    <div class="tablewrap" id="tableWrap">
+      <table id="grid"></table>
+    </div>
+    <p class="muted small">Tippe auf eine Zeile, um den Tag zu bearbeiten. ✎ = Notiz vorhanden.</p>
+  </section>
+
+  <!-- Einstellungen -->
+  <section id="view-settings" class="view">
+    <h2>Tägliche Erinnerung</h2>
+    <div class="card">
+      <div class="row">
+        <label for="remEnabled">Erinnerung aktiv</label>
+        <input type="checkbox" id="remEnabled" class="switch">
+      </div>
+      <div class="row">
+        <label for="remTime">Uhrzeit</label>
+        <input type="time" id="remTime" value="20:00">
+      </div>
+      <p id="remStatus" class="muted small"></p>
+      <div class="actions">
+        <button class="btn" id="testNotifBtn">Test-Benachrichtigung</button>
+        <button class="btn hidden" id="notifSettingsBtn">Benachrichtigungen erlauben</button>
+      </div>
+      <p class="muted small">Ist der Tag schon vollständig ausgefüllt, entfällt die Erinnerung.</p>
+    </div>
+
+    <h2>Zyklen</h2>
+    <div class="card" id="cycleList"></div>
+
+    <h2>Datensicherung</h2>
+    <div class="card">
+      <p class="muted small">Alle Daten bleiben nur auf diesem Gerät. Exportiere regelmäßig eine Sicherung.</p>
+      <div class="actions">
+        <button class="btn" id="exportBackupBtn">Sicherung exportieren</button>
+        <button class="btn" id="importBackupBtn">Sicherung importieren</button>
+      </div>
+    </div>
+
+    <h2>Hinweise</h2>
+    <div class="card small">
+      <p>Der erste Zyklustag ist der erste Tag deiner Periode (1. Tag mit richtiger Blutung). Der letzte Zyklustag ist der Tag vor der darauffolgenden Periode.</p>
+      <p>Bewerte jedes Symptom täglich von <b>0 (gar nicht)</b> bis <b>4 (extrem vorhanden)</b>. Für eine Diagnose ist es wichtig, wirklich jeden Tag einzutragen – möglichst nicht nachträglich.</p>
+      <p>Die Auswertung von mindestens zwei Zyklen, in denen Beschwerden aufgetreten sind, bildet die Grundlage für eine Therapieempfehlung.</p>
+      <p class="muted">Vorlage: PMDS-Zyklustagebuch nach ICD-11, © Dorn, Schwenkhagen, Rohde 2026</p>
+    </div>
+  </section>
+</main>
+
+<nav class="tabs">
+  <button data-view="entry" class="active"><span class="ico">✎</span>Eintrag</button>
+  <button data-view="overview"><span class="ico">▦</span>Übersicht</button>
+  <button data-view="settings"><span class="ico">⚙</span>Einstellungen</button>
+</nav>
+
+<div id="dialog" class="dialog hidden">
+  <div class="dialog-box">
+    <p id="dialogText"></p>
+    <input type="date" id="dialogDate" class="hidden">
+    <div class="actions right">
+      <button class="btn" id="dialogCancel">Abbrechen</button>
+      <button class="btn primary" id="dialogOk">OK</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="jspdf.umd.min.js"></script>
+<script src="pdf.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

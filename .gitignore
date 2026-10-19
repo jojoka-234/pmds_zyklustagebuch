@@ -1,0 +1,6 @@
+build/
+*.apk
+# Signing key – keep it safe elsewhere, never commit it
+*.jks
+*.keystore
+tools/android.jar
